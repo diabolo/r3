@@ -30,4 +30,6 @@ group :development, :test do
   #gem "webrat"
   gem "capybara"
   gem 'cucumber-rails', '>= 0.3.2'
+  gem 'database_cleaner'
+  gem 'launchy'    # So you can do Then show me the page
 end
