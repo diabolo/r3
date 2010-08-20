@@ -34,4 +34,5 @@ group :development, :test do
   gem 'cucumber-rails', '>= 0.3.2'
   gem 'database_cleaner'
   gem 'launchy'    # So you can do Then show me the page
+  gem 'spork'
 end
