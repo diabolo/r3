@@ -38,6 +38,10 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       selenium-webdriver (>= 0.0.3)
+    compass (0.10.4)
+      haml (>= 3.0.4)
+    compass-susy-plugin (0.8.0)
+      compass (>= 0.10.0)
     configuration (1.1.0)
     cucumber (0.8.5)
       builder (~> 2.1.2)
@@ -121,6 +125,8 @@ PLATFORMS
 
 DEPENDENCIES
   capybara
+  compass (>= 0.10.4.pre)
+  compass-susy-plugin (>= 0.8.0)
   cucumber-rails (>= 0.3.2)
   database_cleaner
   haml
