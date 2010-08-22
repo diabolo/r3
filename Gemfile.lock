@@ -61,6 +61,9 @@ GEM
     gherkin (2.1.5)
       trollop (~> 1.16.2)
     haml (3.0.17)
+    haml-rails (0.2)
+      haml (~> 3.0)
+      rails (~> 3.0.0.rc)
     i18n (0.4.1)
     json_pure (1.4.6)
     launchy (0.3.7)
@@ -130,6 +133,7 @@ DEPENDENCIES
   cucumber-rails (>= 0.3.2)
   database_cleaner
   haml
+  haml-rails
   launchy
   rails (= 3.0.0.rc)
   rspec-rails (>= 2.0.0.beta.19)

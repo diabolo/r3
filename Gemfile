@@ -6,6 +6,7 @@ gem 'rails', '3.0.0.rc'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3-ruby', :require => 'sqlite3'
+gem "haml-rails"
 gem 'haml'
 gem 'compass', '>= 0.10.4.pre'
 gem 'compass-susy-plugin', '>= 0.8.0'
