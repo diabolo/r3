@@ -1,8 +1,28 @@
+# Running all features
+# default runs all webrat features
 <%
-rerun = File.file?('rerun.txt') ? IO.read('rerun.txt') : ""
-rerun_opts = rerun.to_s.strip.empty? ? "--format #{ENV['CUCUMBER_FORMAT'] || 'progress'} features" : "--format #{ENV['CUCUMBER_FORMAT'] || 'pretty'} #{rerun}"
-std_opts = "--format #{ENV['CUCUMBER_FORMAT'] || 'progress'} --strict --tags ~@wip"
+def_r = " -r features/support/env.rb -r features/step_definitions features "
+def_f = " --format pretty "
+def_t = " --tags ~@wip --tags ~@pending --tags ~@selenium"
+def_opts = "#{def_r} #{def_f} #{def_t}"
+use_selenium_rc = "-r features/support/selenium_rc.rb"
+selenium_opts = "--tags @selenium --tags ~@wip --tags ~@pending"
 %>
-default: <%= std_opts %> features
-wip: --tags @wip:3 --wip features
-rerun: <%= rerun_opts %> --format rerun --out rerun.txt --strict --tags ~@wip
+
+default: <%= def_opts %> 
+wip: --tags @wip:2 --wip <%= def_r %> <%= def_f %>
+pending: --tags @pending <%= def_r %> <%= def_f %>
+textmate: --format=html <%= def_r %> <%= def_t %> 
+
+#=== Selenium Profiles
+#--- Local ---
+selenium: RAILS_ENV=selenium <%= selenium_opts %> -r features/support/selenium.rb <%= def_r %>
+
+#--- Remote ---
+selenium_firefox: RAILS_ENV=selenium <%= selenium_opts %> <%= use_selenium_rc %> -r features/support/selenium_firefox.rb <%= def_r %>
+selenium_safari: RAILS_ENV=selenium <%= selenium_opts %> <%= use_selenium_rc %> -r features/support/selenium_safari.rb <%= def_r %>
+selenium_googlechrome: RAILS_ENV=selenium <%= selenium_opts %> <%= use_selenium_rc %> -r features/support/selenium_googlechrome.rb <%= def_r %>
+selenium_ie6: RAILS_ENV=selenium <%= selenium_opts %> --tags ~@3ds <%= use_selenium_rc %> -r features/support/selenium_ie6.rb <%= def_r %>
+selenium_ie7: RAILS_ENV=selenium <%= selenium_opts %> --tags ~@3ds <%= use_selenium_rc %> -r features/support/selenium_ie7.rb <%= def_r %>
+selenium_ie8: RAILS_ENV=selenium <%= selenium_opts %> --tags ~@3ds <%= use_selenium_rc %> -r features/support/selenium_ie8.rb <%= def_r %>
+
