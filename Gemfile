@@ -28,11 +28,13 @@ gem 'compass-susy-plugin', '>= 0.8.0'
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
 # and rake tasks are available in development mode:
-group :development, :test do    
-  gem "rspec-rails", ">= 2.0.0.beta.19"
+group :development, :test do
+  gem "ruby-debug"    
+  gem "rspec-rails", ">= 2.0.0.beta.20"
   #gem "webrat"
   gem "capybara"
   gem 'cucumber-rails', '>= 0.3.2'
   gem 'database_cleaner'
   gem 'launchy'    # So you can do Then show me the page
+  gem 'coderay'
 end
